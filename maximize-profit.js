@@ -12,8 +12,8 @@ let bestTrade = {
 	"Rate": 0.0
 };
 
-for(var i=prices.length-1; i>-1; i--)
-for(var j=0; j < i; j++) {
+for(let i=prices.length-1; i>-1; i--)
+for(let j=0; j < i; j++) {
 	const t = {
 		"BuyDate": new Date(prices[j].Date),
 		"BuyPrice": prices[j].Price,
