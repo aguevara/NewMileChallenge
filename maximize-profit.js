@@ -15,18 +15,18 @@ let bestTrade = {
 for(var i=prices.length-1; i>-1; i--)
 for(var j=0; j < i; j++) {
 	let t = {
-				"BuyDate": new Date(prices[j].Date),
-				"BuyPrice": prices[j].Price,
-				"SellDate": new Date(prices[i].Date),
-				"SellPrice": prices[i].Price,
-				"Profit": prices[i].Price - prices[j].Price,
-				"Rate": +(100 * (prices[i].Price - prices[j].Price)/prices[j].Price).toFixed(0)
-			};
+		"BuyDate": new Date(prices[j].Date),
+		"BuyPrice": prices[j].Price,
+		"SellDate": new Date(prices[i].Date),
+		"SellPrice": prices[i].Price,
+		"Profit": prices[i].Price - prices[j].Price,
+		"Rate": +(100 * (prices[i].Price - prices[j].Price)/prices[j].Price).toFixed(0)
+	};
 	if(t.BuyDate < t.SellDate)
 	if(t.Profit > bestTrade.Profit){
 		bestTrade = t;
 	}
-}
+};
 
 const currencyFormat = { style: "currency", "currency":"USD" };
 const dateFormat = { dateStyle: "full", timeZone: 'America/New_York' };
