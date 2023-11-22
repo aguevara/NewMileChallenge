@@ -9,12 +9,13 @@ let bestTrade = {
 	"SellDate": new Date(),
 	"SellPrice": 0.0,
 	"Profit": 0.0,
-	"Rate": 0.0
+	"Rate": 0.0,
+	"BuyIndex": 0
 };
 
 for(let i=prices.length-1; i>-1; i--)
 for(let j=0; j < i; j++) {
-	const t = {
+	const trade = {
 		"BuyDate": new Date(prices[j].Date),
 		"BuyPrice": prices[j].Price,
 		"SellDate": new Date(prices[i].Date),
@@ -22,9 +23,9 @@ for(let j=0; j < i; j++) {
 		"Profit": prices[i].Price - prices[j].Price,
 		"Rate": +(100 * (prices[i].Price - prices[j].Price)/prices[j].Price).toFixed(0)
 	};
-	if(t.BuyDate < t.SellDate)
-	if(t.Profit > bestTrade.Profit){
-		bestTrade = t;
+	if(trade.BuyDate < trade.SellDate)
+	if(trade.Profit > bestTrade.Profit){
+		bestTrade = trade;
 	}
 };
 
